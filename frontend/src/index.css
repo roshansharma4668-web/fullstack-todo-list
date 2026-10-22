@@ -1,0 +1,44 @@
+:root {
+  font-family: 'DM Sans', Arial, sans-serif;
+  color: #292638;
+  background: #faf9fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --font-body: 'DM Sans', Arial, sans-serif;
+  --font-heading: 'Manrope', 'DM Sans', Arial, sans-serif;
+  --ink: #292638;
+  --muted: #898596;
+  --line: #eeecf2;
+  --surface: #fff;
+  --violet: #7958e8;
+  --violet-dark: #6243d0;
+  --violet-light: #f1edff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: #ddd4ff;
+  color: #332461;
+}
