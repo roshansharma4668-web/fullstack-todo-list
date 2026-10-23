@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const BASE_URL = import.meta.env.VITE_BACKEND_URL || "https://fullstack-todo-list-rdjs.onrender.com"; 
+const BASE_URL = "https://fullstack-todo-list-rdjs.onrender.com";
 const API_TOKEN = import.meta.env.VITE_API_TOKEN || "local-task-manager-token-change-me-32";
 
 function App() {
