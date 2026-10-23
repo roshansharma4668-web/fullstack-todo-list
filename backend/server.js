@@ -7,23 +7,7 @@ require('dotenv').config();
 const taskRoutes = require('./routes/taskRoutes');
 const app = express();
 
-const allowedOrigins = new Set([
-  'https://fullstack-todo-list-steel.vercel.app', // 
-
-  ...(process.env.FRONTEND_ORIGIN || '')
-    .split(',')
-    .map((origin) => origin.trim())
-    .filter(Boolean)
-]);
-
-app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.has(origin)) {
-      return callback(null, true);
-    }
-    return callback(null, false);
-  }
-}));
+app.use(cors());
 app.use(express.json({ limit: '10kb' }));
 
 app.get('/', (req, res) => {
