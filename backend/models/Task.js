@@ -14,9 +14,11 @@ const taskSchema = new mongoose.Schema(
       default: '',
       maxlength: [500, 'Task description cannot exceed 500 characters.']
     },
-    completed: {
-      type: Boolean,
-      default: false
+    // Naya status field add kiya gaya
+    status: {
+      type: String,
+      enum: ['Pending', 'Processing', 'Completed'],
+      default: 'Pending'
     }
   },
   { timestamps: true }

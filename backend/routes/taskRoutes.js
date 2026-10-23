@@ -3,8 +3,9 @@ const mongoose = require('mongoose');
 const Task = require('../models/Task');
 
 const router = express.Router();
-const editableFields = new Set(['title', 'description', 'completed']);
-const creatableFields = new Set(['title', 'description']);
+// 'completed' ki jagah 'status' allow kiya
+const editableFields = new Set(['title', 'description', 'status']);
+const creatableFields = new Set(['title', 'description', 'status']);
 
 function validateTaskBody(body, { partial = false } = {}) {
   if (!body || typeof body !== 'object' || Array.isArray(body)) {
@@ -30,8 +31,9 @@ function validateTaskBody(body, { partial = false } = {}) {
   if ('description' in body && typeof body.description !== 'string') {
     return { error: 'Task description must be a string.' };
   }
-  if ('completed' in body && typeof body.completed !== 'boolean') {
-    return { error: 'Task completed must be a boolean.' };
+  // Status validation add kiya
+  if ('status' in body && typeof body.status !== 'string') {
+    return { error: 'Task status must be a string.' };
   }
 
   return { data: body };
@@ -68,7 +70,8 @@ router.post('/', async (req, res) => {
 
   const task = await Task.create({
     title: validation.data.title.trim(),
-    description: validation.data.description?.trim() ?? ''
+    description: validation.data.description?.trim() ?? '',
+    status: validation.data.status ?? 'Pending'
   });
   return res.status(201).json(task);
 });
