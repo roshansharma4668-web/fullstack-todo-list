@@ -8,8 +8,8 @@ const taskRoutes = require('./routes/taskRoutes');
 const app = express();
 
 const allowedOrigins = new Set([
-  'http://localhost:5173',
-  'http://127.0.0.1:5173',
+  'https://fullstack-todo-list-steel.vercel.app', // 
+
   ...(process.env.FRONTEND_ORIGIN || '')
     .split(',')
     .map((origin) => origin.trim())
